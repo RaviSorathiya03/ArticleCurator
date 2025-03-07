@@ -1,13 +1,14 @@
 import { db } from "@/db";
 import { articles,  categories } from "@/db/schema";
 import { currentUser } from "@clerk/nextjs/server";
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 import axios from "axios";
 import { categorizeArticle } from "@/lib/CategoryOrganizer";
 import { eq } from "drizzle-orm";
 import { query } from "@/lib/data";
 
-export async function POST(req: NextRequest) {
+
+export async function POST() {
   try {
     const user = await currentUser();
     if (!user) {
@@ -28,26 +29,33 @@ export async function POST(req: NextRequest) {
     const articlesData = fetchArticles.data.organic || [];
 
     await Promise.all(
-      articlesData.map(async (article: any) => {
-        const categoryName = await categorizeArticle(article);
-        console.log("Category Name:", categoryName);
-        const category = await db
-          .select({ id: categories.id })
-          .from(categories)
-          .where(eq(categories.name, categoryName));
-        console.log("Category:", category);
-        const categoryId = category.length > 0 ? category[0].id : null;
-      
-
-        await db.insert(articles).values({
-          title: article.title,
-          url: article.link,
-          description: article.snippet,
-          categoryId: categoryId? categoryId: 0,
-          createdAt: new Date(),
-        });
+      articlesData.map(async (article) => {
+        try {
+          const categoryName = await categorizeArticle(article);
+          console.log("Category Name:", categoryName);
+    
+          const category = await db
+            .select({ id: categories.id })
+            .from(categories)
+            .where(eq(categories.name, categoryName));
+    
+          console.log("Category:", category);
+    
+          const categoryId = category?.[0]?.id ?? null; // Fallback to null if category not found
+    
+          await db.insert(articles).values({
+            title: article?.title ?? "Untitled",
+            url: article?.link ?? "",
+            description: article?.snippet ?? "No description available",
+            categoryId: categoryId,
+            createdAt: new Date(),
+          });
+        } catch (error) {
+          console.error("Error processing article:", article?.title, error);
+        }
       })
     );
+    
 
     return NextResponse.json({ message: "Articles fetched and stored successfully" });
   } catch (error) {
@@ -56,7 +64,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(req: NextRequest){
+export async function GET(){
     try {
         const user = await currentUser();
         if(!user){

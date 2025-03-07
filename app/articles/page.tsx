@@ -24,7 +24,7 @@ export default function ArticlePage() {
     setSortOrder(value);
   };
 
-  const sortedArticles = data?.data?.data?.slice().sort((a: any, b: any) => {
+  const sortedArticles = data?.data?.data?.slice().sort((a, b) => {
     if (sortOrder === "asc") {
       return a.title.localeCompare(b.title); // Sort by title ascending
     } else {
@@ -60,7 +60,7 @@ export default function ArticlePage() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {sortedArticles?.map((article: any) => (
+        {sortedArticles?.map((article) => (
           <ArticleCard key={article.id} article={article} />
         ))}
       </div>

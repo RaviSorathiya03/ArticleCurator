@@ -32,11 +32,11 @@ export const userCategories = pgTable("user_categories", {
 
 export const articles = pgTable("article", {
     id: serial("id").primaryKey(),
-    title: text("title").notNull(),
-    url: text("url").notNull(),
+    title: text("title"),
+    url: text("url"),
     description: text("description"),
     imageUrl: text("image_url"),
     categoryId: integer("category_id")
     .references(()=>categories.id, {onDelete: "cascade"}),
-    createdAt: timestamp("create_at").notNull()
+    createdAt: timestamp("create_at")
 })

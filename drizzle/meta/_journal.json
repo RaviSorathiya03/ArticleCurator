@@ -15,6 +15,13 @@
       "when": 1741186880303,
       "tag": "0001_simple_omega_sentinel",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1741366553963,
+      "tag": "0002_marvelous_iceman",
+      "breakpoints": true
     }
   ]
 }

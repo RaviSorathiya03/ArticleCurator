@@ -71,31 +71,7 @@ export function Loading({ size = "default", text, className, isLoading = true, t
     },
   }
 
-  const emojiVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      scale: 0.8,
-    },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        y: {
-          type: "spring",
-          stiffness: 100,
-          damping: 10,
-        },
-        opacity: { duration: 0.2 },
-        scale: { duration: 0.3 },
-        repeat: Number.POSITIVE_INFINITY,
-        repeatType: "reverse",
-        repeatDelay: 0.2,
-        delay: i * 0.1,
-      },
-    }),
-  }
+  
 
   // Handle client-side mounting for animations
   useEffect(() => {
@@ -127,7 +103,6 @@ export function Loading({ size = "default", text, className, isLoading = true, t
               <motion.div
                 key={i}
                 custom={i}
-                variants={emojiVariants}
                 className={cn("absolute", sizeClasses[size])}
                 style={{
                   transform: `rotate(${i * (360 / emojis.length)}deg) translateY(-${size === "small" ? 30 : size === "default" ? 40 : 50}px)`,

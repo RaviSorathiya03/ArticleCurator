@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Loading } from "@/components/ui/loading";
 import { fetchOneArticle } from "@/lib/Query";
-import { formatDate } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, Clock, Eye } from "lucide-react";
 import Image from "next/image";

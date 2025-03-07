@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -9,7 +8,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function HeroSection() {
-  const [email, setEmail] = useState("")
   const {isSignedIn} = useUser()
 
   return (

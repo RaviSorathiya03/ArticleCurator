@@ -39,7 +39,7 @@ export default function TestimonialSection() {
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">What Our Users Say</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-              Don't just take our word for it. Here's what people love about our platform.
+              Don&apos;t just take our word for it. Here&apos;s what people love about our platform.
             </p>
           </div>
         </motion.div>
@@ -60,7 +60,7 @@ export default function TestimonialSection() {
                       <AvatarFallback className="bg-primary/10 text-primary">{testimonial.avatar}</AvatarFallback>
                     </Avatar>
                   </div>
-                  <p className="mb-4 text-center italic">"{testimonial.quote}"</p>
+                  <p className="mb-4 text-center italic">{testimonial.quote}</p>
                   <div className="text-center">
                     <h4 className="font-semibold">{testimonial.author}</h4>
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
