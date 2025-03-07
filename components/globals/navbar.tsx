@@ -20,6 +20,7 @@ export default function Navbar() {
     { name: "Features", href: "#features" },
     { name: "Benefits", href: "#benefits" },
     { name: "Testimonials", href: "#testimonials" },
+    {name: "Articles", href: "/articles" },
   ]
 
   return (

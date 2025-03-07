@@ -67,7 +67,7 @@ export default function BenefitsSection() {
             transition={{ duration: 0.7 }}
           >
             <div className="relative w-full max-w-md overflow-hidden rounded-lg shadow-2xl">
-              <img src="/placeholder.svg?height=600&width=500" alt="App benefits visualization" className="w-full" />
+              <img src="/article2.jpg" alt="App benefits visualization" className="w-full" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
                 <div className="absolute bottom-0 p-6">
                   <h3 className="text-2xl font-bold text-white">Personalized For You</h3>

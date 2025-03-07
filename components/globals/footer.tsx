@@ -57,15 +57,15 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-medium">Connect</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="https://x.com/RaviSor08875235" className="text-muted-foreground hover:text-foreground">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="https://github.com/RaviSorathiya03" className="text-muted-foreground hover:text-foreground">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="https://www.linkedin.com/in/ravi-vaniya-319815302/" className="text-muted-foreground hover:text-foreground">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </a>

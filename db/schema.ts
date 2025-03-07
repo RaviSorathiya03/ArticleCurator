@@ -35,7 +35,7 @@ export const articles = pgTable("article", {
     title: text("title").notNull(),
     url: text("url").notNull(),
     description: text("description"),
-    imageUrl: text("description"),
+    imageUrl: text("image_url"),
     categoryId: integer("category_id")
     .references(()=>categories.id, {onDelete: "cascade"}),
     createdAt: timestamp("create_at").notNull()

@@ -4,11 +4,13 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { SignUpButton } from "@clerk/nextjs"
+import { SignUpButton, useUser } from "@clerk/nextjs"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function HeroSection() {
   const [email, setEmail] = useState("")
+  const {isSignedIn} = useUser()
 
   return (
     <section className="relative overflow-hidden py-20 md:py-32">
@@ -44,7 +46,7 @@ export default function HeroSection() {
           >
             <SignUpButton mode="modal">
               <Button size="lg" className="w-full h-12">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  {isSignedIn?   <Link href={"/articles"}>Explore Articles</Link>: <>Get Started <ArrowRight className="ml-2 h-4 w-4" /></>}
               </Button>
             </SignUpButton>
             <p className="text-xs text-muted-foreground">Free 14-day trial. No credit card required.</p>
